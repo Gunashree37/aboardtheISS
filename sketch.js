@@ -17,7 +17,8 @@ drink = loadAnimation("drink1.png", "drink2.png")
 eat = loadAnimation("eat1.png", "eat2.png")
 gym - loadAnimation("gym1.png", "gym2.png")
 gymCircle = loadAnimation("gym11.pmg", "gym12.png")
-move = loadAnimation("move.png", "move1.png")
+moving = loadAnimation("move.png", "move1.png")
+astronaut = loadAnimation("move.png", "move1.png")
 
 }
 
@@ -30,29 +31,26 @@ function setup() {
 function draw() {
   background(iss)  
  
+  astronaut = createSprite(400,200)
+  
   if (keyDown(RIGHT_ARROW)){
-  sleep = createSprite(200,200);
-  sleep.addImage(sleep)
+  astronaut.changeAnimation(sleep)
   }
  
   if (keyDown (LEFT_ARROW)){
-  bath = createSprite(200,200);
-  bath.addAnimation(bath)
+  astronaut.changeAnimation(bath)
   }
 
   if (keyDown (UP_ARROW)){
-  brush = createSprite(200,200);
-  brush.addImage(brush)
+  astronaut.changeAnimation(brush)
   }
 
   if (keyDown(DOWN_ARROW)){
-  drink = createSprite(200,200);
-  drink.addAnimation(drink)
+  astronaut.changeAnimation(drink)
   }
 
   if (keyDown("space")){
-  eat = createSprite(200,200);
-  eat.addAnimation(eat)
+  astronaut.changeAnimation(eat)
   }
 
   /*gym = createSprite(200,200);
@@ -61,8 +59,8 @@ function draw() {
   gymCircle = createSprite(200,200);
   gymCircle = addImage(gymCircle)
  
-  move = createSprite(200,200);
-  move = addImage(move)*/
+  moving = createSprite(200,200);
+  moving = addImage(move)*/
   
   drawSprites();
 }
