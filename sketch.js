@@ -6,51 +6,74 @@ var drink
 var eat
 var gym, gymCircle
 var move
+var astronaut
 
-function preload(){
+function preload() {
 
-iss = loadImage("iss.png")  
-sleep = loadImage("sleep.png")
-bath = loadAnimation ("bath1.png", "bath2.png")
-brush = loadImage("brush.png")
-drink = loadAnimation("drink1.png", "drink2.png")
-eat = loadAnimation("eat1.png", "eat2.png")
-gym - loadAnimation("gym1.png", "gym2.png")
-gymCircle = loadAnimation("gym11.pmg", "gym12.png")
-moving = loadAnimation("move.png", "move1.png")
-astronaut = loadAnimation("move.png", "move1.png")
+  iss = loadImage("iss.png")
+  sleep = loadAnimation("sleep.png")
+  bath = loadAnimation("bath1.png", "bath2.png")
+  brush = loadAnimation("brush.png")
+  drink = loadAnimation("drink1.png", "drink2.png")
+  eat = loadAnimation("eat1.png", "eat2.png")
+  gym - loadAnimation("gym1.png", "gym2.png")
+  gymCircle = loadAnimation("gym11.png", "gym12.png")
+  move = loadAnimation("move.png", "move1.png")
 
 }
 
 function setup() {
- createCanvas(800,400);
- createSprite(400, 200, 50, 50);
+  createCanvas(800, 400);
 
+  astronaut = createSprite(400, 200)
+  astronaut.addAnimation("sleeping", sleep)
+  astronaut.changeAnimation("sleeping")
+  astronaut.scale = 0.1
 }
 
 function draw() {
-  background(iss)  
- 
-  astronaut = createSprite(400,200)
+  edges = createEdgeSprites()
+  astronaut.bounceOff(edges)
   
-  if (keyDown(RIGHT_ARROW)){
-  astronaut.changeAnimation(sleep)
+  background(iss)
+
+  if (keyDown(RIGHT_ARROW)) {
+    astronaut.addAnimation("brushing", brush);
+    astronaut.changeAnimation("brushing")
+    astronaut.y = 350;
+    astronaut.velocityY = 0;
+    astronaut.velocityX = 0;
   }
- 
+
   if (keyDown (LEFT_ARROW)){
-  astronaut.changeAnimation(bath)
+    astronaut.addAnimation("bathing", bath);
+    astronaut.changeAnimation("bathing")
+    astronaut.y = 350;
+    astronaut.velocityY = 0;
+    astronaut.velocityX = 0;
   }
 
   if (keyDown (UP_ARROW)){
-  astronaut.changeAnimation(brush)
+  astronaut.addAnimation("moving", move)
+    astronaut.changeAnimation("moving")
+    astronaut.velocityY = 0;
+    astronaut.velocityX = 0;
   }
 
   if (keyDown(DOWN_ARROW)){
-  astronaut.changeAnimation(drink)
+    astronaut.addAnimation("drinking", drink);
+    astronaut.changeAnimation("drinking")
+    astronaut.y = 350;
+    astronaut.velocityY = 0;
+    astronaut.velocityX = 0;
   }
 
-  if (keyDown("space")){
-  astronaut.changeAnimation(eat)
+  if (keyDown("e")){
+    astronaut.addAnimation("eating", eat);
+    astronaut.changeAnimation("eating")
+    astronaut.y = 350;
+    astronaut.velocityY = 0;
+    astronaut.velocityX = 0;
   }
 
   /*gym = createSprite(200,200);
@@ -61,6 +84,6 @@ function draw() {
  
   moving = createSprite(200,200);
   moving = addImage(move)*/
-  
+
   drawSprites();
 }
