@@ -56,7 +56,7 @@ function draw() {
   if(keyDown("u")){
     
     astronaut.addAnimation("moving",move);
-    astronaut.addAnimation("moving",move);
+    astronaut.addAnimation("moving");
     astronaut.y = 350;
     astronaut.velocityX = 0;
     astronaut.velocityY = 0;
