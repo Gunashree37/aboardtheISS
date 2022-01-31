@@ -53,14 +53,14 @@ function draw() {
     astronaut.velocityX = 0;
   }
 
-  if (keyDown (UP_ARROW)){
-  astronaut.addAnimation("move", move)
-    astronaut.changeAnimation("move")
+  if(keyDown("u")){
+    
+    astronaut.addAnimation("moving",move);
+    astronaut.addAnimation("moving",move);
     astronaut.y = 350;
-    astronaut.velocityY = 0;
     astronaut.velocityX = 0;
+    astronaut.velocityY = 0;
   }
-
   if (keyDown(DOWN_ARROW)){
     astronaut.addAnimation("drinking", drink);
     astronaut.changeAnimation("drinking")
